@@ -17,6 +17,7 @@ class test {
 						  // Get line, break into tokens
     int i1 = Integer.parseInt(st.nextToken());    // first integer
     int i2 = Integer.parseInt(st.nextToken());    // second integer
+    
     out.println(i1+i2);                           // output result
     out.close();                                  // close the output file
     f.close();									  // close the BufferedReader
