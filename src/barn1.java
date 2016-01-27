@@ -4,8 +4,15 @@ ID: yao.dai1
 LANG: JAVA
 TASK: barn1
 */
-import java.io.*;
-import java.util.*;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
 
 public class barn1 {
 	public static void main(String[] args) throws IOException {
@@ -13,6 +20,7 @@ public class barn1 {
 		int m = sc.nextInt();
 		sc.next(); // S in the input data is completely unnecessary, skip it.
 		int c = sc.nextInt();
+		
 		// "stalls" to sort stall positions, "gaps" to store found gaps.
 		List<Integer> stalls = new ArrayList<Integer>(), gaps = new ArrayList<Integer>();
 		for (int i = 0; i < c; i++) {
@@ -20,6 +28,7 @@ public class barn1 {
 		}
 		sc.close();
 		Collections.sort(stalls);
+		
 		// Find all gaps, store in "gaps", then sort.
 		for (int i = 1; i < c; i++) {
 			int gap;
@@ -28,6 +37,7 @@ public class barn1 {
 			}
 		}
 		Collections.sort(gaps);
+		
 		// Add all smaller gaps to cover, leave out as many large ones as
 		// possible using the amount of boards.
 		for (int i = 0; i < gaps.size() - m + 1; i++) {
