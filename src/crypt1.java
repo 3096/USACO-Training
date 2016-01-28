@@ -25,10 +25,13 @@ public class crypt1 {
 			nums.add(sc.nextInt());
 		}
 		sc.close();
-		// All digits presented in order can reduce time
+		// All digits being in order can reduce run time by skipping
+		// combinations when the product has too many digits. Assume in test
+		// cases, they are not presented in order.
 		Collections.sort(nums);
 
-		// Form all possible combinations with the provided set and check each one.
+		// Form all possible combinations with the provided set and check each
+		// one.
 		int count = 0;
 		for (int a : nums) {
 			for (int b : nums) {
@@ -36,7 +39,8 @@ public class crypt1 {
 					int m1 = a * 100 + b * 10 + c;
 					for (int d : nums) {
 						int p2; // partial product 2
-						// If partial product exceeds three digits, move on to next one.
+						// If partial product exceeds three digits, move on to
+						// next one.
 						if ((p2 = m1 * d) / 1000 > 0) {
 							break;
 						}
@@ -53,7 +57,7 @@ public class crypt1 {
 				}
 			}
 		}
-		
+
 		PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("crypt1.out")));
 		out.println(count);
 		out.close();
